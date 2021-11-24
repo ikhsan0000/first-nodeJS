@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/header') %>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+    <div class="container">
+        <% if(message.length !== 0) { %>
+            <div class="alert alert-success mt-3" role="alert">
+            <i class="bi bi-bag-check"></i>
+            <%= message %>
+            </div>
+        <% } %>
+
+        <h3 class="mt-4 mb-3 underline">Blog List</h3>
+
+        <% if(blogs.length > 0) { %>
+            <% blogs.forEach(element => { %>
+                <a href="blog/<%= element._id %>">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h4><%= element['title'] %></h4>
+                            <p class="blog-snippet"><%= element['snippet'] %></p>    
+                        </div>
+                    </div>
+                </a>
+            <% }); %>
+        <% } %>
+
+    </div>
+</body>
+</html>

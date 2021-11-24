@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/header') %>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+    <div class="container" style="min-width: 700px; max-width: 900px;">
+        <div class="register-head">
+        <h2 class="text-center">Make Your Blog!</p>
+        </div>
+        
+        <form action="/blog" method="POST" id="register-form">
+            <div class="register-form">
+            <div class="mb-3">
+            
+                <label for="blogTitle" class="form-label">Blog Title:</label>
+                <input class="form-control" id="blogTitle" name="blog_title" required>
+            
+            </div>
+            <div class="mb-3">
+          
+                <label for="blogSnippet" class="form-label">Blog Snippet:</label>
+                <input class="form-control" id="blogSnippet" name="blog_snippet" required>
+            
+            </div>
+            
+            <div class="mb-3">
+            
+                <label for="blogBody" class="form-label">Body:</label>
+                <textarea class="form-control" id="blogBody" name="blog_body" rows="3"></textarea>
+        
+            </div>
+        
+            <button type="submit" class="btn btn-primary mt-3" id="register-submit">Order</button>
+        </form>
+    </div> 
+</body>
+</html>

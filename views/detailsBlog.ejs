@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/header') %>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+    <div class="container">
+
+        <h2 class="mt-4 mb-3 underline"><%= blog.title %></h2>
+        <h5 class="details-snippet"><%= blog.snippet %></h5>
+
+        <p class="details-body"><%= blog.body %></p>
+
+    </div>
+</body>
+</html>

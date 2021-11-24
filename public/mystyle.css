@@ -1,0 +1,152 @@
+/* TAG OVERRIDE */
+body
+{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    color: rgb(231, 231, 231);
+    background-color: #343a40;
+}
+
+a
+{
+    text-decoration: inherit;
+    color: rgb(231, 231, 231);
+}
+
+a:hover
+{
+    text-decoration: inherit;
+    color: inherit;
+}
+
+input[type=checkbox]
+{
+    background-color: #1f272e;
+}
+
+/* TAG OVERRIDE END */
+
+/* BOOTSTRAP OVERRIDE */
+
+.alert-success
+{
+    color: #27ff9b;
+    background-color: rgba(255,255,255,0);
+    border-color: #009952;
+    opacity: 75%;
+}
+
+.card
+{
+    border-radius: 10px;
+    background-color: rgb(39, 36, 46);
+    transition: .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.card:hover
+{
+    cursor: pointer;
+    filter: brightness(130%);
+}
+
+/* BOOTSTRAP OVERRIDE END*/
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button 
+{
+  -webkit-appearance: none;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+.center
+{
+    display: block;
+    margin-top: -30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-center
+{
+    text-align: center;
+}
+
+.underline
+{
+    border-bottom: rgb(231, 231, 231) solid 1.5px;
+    margin-right: 35%;
+    padding-bottom: 5px;
+}
+
+.register-head
+{
+    margin-top: 40px;
+}
+
+.form-label
+{
+    font-weight: 500;
+}
+
+.desc-form
+{
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+form input
+{
+    font-weight: 400;
+
+}
+
+.form-control
+{
+    background-color: #1f272e;
+    color: #f3f3f3;
+    border: none;
+} 
+
+.form-control:focus
+{
+    color: #f3f3f3;
+    background-color: #242f38;
+}
+
+.register-form
+{
+    border: #f3f3f3 3px dashed;
+    border-radius: 20px;
+    margin: -20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.price-group
+{
+    display: flex;
+    flex-grow: row wrap;
+}
+
+.blog-snippet
+{
+    margin: 0;
+    color: #888888;
+}
+
+.details-snippet
+{
+    opacity: 70%;
+    margin-top: -10px;
+    font-weight: 300;
+    font-size: medium;
+}
+
+.details-body
+{
+    font-size: large;
+}
