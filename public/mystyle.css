@@ -9,14 +9,14 @@ body
 
 a
 {
-    text-decoration: inherit;
+    text-decoration: none;
     color: rgb(231, 231, 231);
 }
 
 a:hover
 {
-    text-decoration: inherit;
-    color: inherit;
+    text-decoration: none;
+    color: rgb(231, 231, 231);
 }
 
 input[type=checkbox]
@@ -41,7 +41,7 @@ input[type=checkbox]
     border: none;
     border-radius: 10px;
     background-color: rgb(39, 36, 46);
-    transition: .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
     overflow: hidden;
 }
 
@@ -51,6 +51,13 @@ input[type=checkbox]
     cursor: pointer;
     filter: brightness(130%);
 }
+
+.btn-outline-primary
+{
+    color: #A7C7E7;
+    border-color: #A7C7E7;
+}
+
 
 /* BOOTSTRAP OVERRIDE END*/
 
@@ -153,11 +160,14 @@ form input
 
 .details-body
 {
+    text-align: justify;
     margin-top: 30px;
-    font-size: large;
+    font-size: 16px;
     background-color: rgb(39, 36, 46);
     padding: 20px;
     border-radius: 5px;
+    white-space: pre-line;
+    overflow-wrap: break-word;
 }
 
 .card-mark
@@ -175,4 +185,68 @@ form input
     margin-top: -30px;
     font-size: smaller;
     float:right;
+}
+
+.create-blog
+{
+    font-size: smaller;
+    float:right;
+}
+
+.vertical-center 
+{
+    margin: 0;
+}
+
+
+/* OFFLINE FALLBACK PAGE */
+
+.offline-section
+{
+    background-color: rgba(0, 0, 0, 0);
+    min-height: 150px;
+}
+.img-offline
+{
+    display: block;
+    height: 30%;
+    width: 30%;
+    margin: auto;
+    margin-top: 100px;
+}
+
+
+.offline-msg-head
+{
+    font-weight: 600;
+    font-size: 26pt;
+    color: #f3f3f3;
+    text-align: center;
+}
+
+.offline-msg
+{
+    color: #b8b8b8;
+    font-size: 13pt;
+    text-align: center;
+}
+
+@media (max-width:800px) {
+    .img-offline
+    {
+        width: 50%;
+        height: 50%;
+    }
+
+    .offline-msg-head
+    {
+        font-size: 17pt;
+    }
+
+    .offline-msg
+    {
+        padding: 0 30px 0 30px;
+        font-size: 11pt;
+    }
+
 }

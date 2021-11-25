@@ -59,7 +59,7 @@ app.post('/blog', (req, res) =>
     {
         title: requested['blog_title'],
         snippet: requested['blog_snippet'],
-        body: requested['blog_body']
+        body: requested['blog_body'].trim()
     });
 
     console.log(requested);
