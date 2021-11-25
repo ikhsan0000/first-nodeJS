@@ -64,7 +64,6 @@ app.post('/blog', (req, res) =>
 
     console.log(requested);
 
-
     blog.save()
         .then((result) =>
         {
@@ -100,7 +99,18 @@ app.get('/blog/:id', (req, res) =>
     })
     .catch((err) =>
     {
+        console.log(err);
+    });
+});
 
+app.delete('/blog/:id',(req, res) => 
+{
+    const id = req.params.id;
+
+    Blog.findByIdAndDelete(id)
+    .then(result =>
+    {
+        res.json({ redirect : '/'})
     });
 });
 

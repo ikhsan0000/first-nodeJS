@@ -6,12 +6,34 @@
 <body>
     <%- include('./partials/nav') %>
     <div class="container">
-
         <h2 class="mt-4 mb-3 underline"><%= blog.title %></h2>
+        <a class="delete-blog btn btn-outline-danger" id="deleteBlog" data-blogid="<%= blog._id %>">Delete this blog</a>
         <h5 class="details-snippet"><%= blog.snippet %></h5>
 
         <p class="details-body"><%= blog.body %></p>
 
     </div>
+
+    <script>
+        const deleteButton = document.querySelector('#deleteBlog');
+
+        deleteButton.addEventListener('click', (e) =>
+        {
+            const endpoint = `/blog/${deleteButton.dataset.blogid}`;
+
+            fetch(endpoint, 
+            {
+                method: 'DELETE'
+            })
+            .then((result) => result.json())
+            .then((data) => 
+            {
+                window.location.href = data.redirect;
+            })
+            // .then((data) => console.log(data))
+            .catch((err) => console.log(err));
+        });
+
+    </script>
 </body>
 </html>

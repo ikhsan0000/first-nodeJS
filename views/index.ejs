@@ -20,6 +20,7 @@
                 <a href="blog/<%= element._id %>">
                     <div class="card mb-3">
                         <div class="card-body">
+                        <div class="card-mark"></div>
                             <h4><%= element['title'] %></h4>
                             <p class="blog-snippet"><%= element['snippet'] %></p>    
                         </div>
@@ -29,5 +30,12 @@
         <% } %>
 
     </div>
+
+    <script>
+        const url_string = window.location.pathname;
+        var url = new URL(url_string);
+        var c = url.searchParams.get("c");
+        console.log('c');
+    </script>
 </body>
 </html>
