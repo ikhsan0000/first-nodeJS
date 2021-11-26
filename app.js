@@ -18,6 +18,11 @@ app.use(session({
 
 app.use(flash());
 
+//use this middleware to sucessfuly return the body from fetch
+app.use(express.json({
+    type: ['application/json', 'text/plain']
+  }))
+
 // connection to MongoDB
 const dbURI = 'mongodb+srv://ikhsan:123456qwerty@nodetutorial.5cjll.mongodb.net/NodeBlog?retryWrites=true&w=majority'
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true})

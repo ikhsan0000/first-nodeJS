@@ -39,7 +39,6 @@ const blog_create_get = (req, res) =>
     res.render('createBlog', {
         title: 'Blog | Create'
     });
-    console.log('HIW');
 }
 
 const blog_create_post = (req, res) =>
@@ -70,11 +69,22 @@ const blog_create_post = (req, res) =>
 const blog_delete = (req, res) => 
 {
     const id = req.params.id;
-
     Blog.findByIdAndDelete(id)
     .then(result =>
     {
         res.json({ redirect : '/'})
+    });
+}
+
+const blog_update = (req, res) =>
+{
+    const id = req.params.id;
+    const requested = req.body['bodyUpdate'];
+    console.log(requested);
+    Blog.findByIdAndUpdate(id, {body: requested})
+    .then(result =>
+    {
+        res.json({ msg : 'success'})
     });
 }
 
@@ -84,5 +94,6 @@ module.exports =
     blog_details,
     blog_create_get,
     blog_create_post,
-    blog_delete
+    blog_delete,
+    blog_update
 }

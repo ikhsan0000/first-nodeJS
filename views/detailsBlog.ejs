@@ -7,15 +7,23 @@
     <%- include('./partials/nav') %>
     <div class="container">
         <h2 class="mt-4 mb-3 underline"><%= blog.title %></h2>
-        <a class="delete-blog btn btn-outline-danger" id="deleteBlog" data-blogid="<%= blog._id %>">Delete this blog</a>
+        <a class="delete-blog btn btn-outline-danger" id="deleteBlog" data-blogid="<%= blog._id %>">
+            <i class="bi bi-trash"></i>
+            Delete this blog
+        </a>
+        <a class="edit-blog btn btn-outline-success" id="editBlog">
+            <i class="bi bi-pencil"></i>
+            Edit
+        </a>
         <h5 class="details-snippet"><%= blog.snippet %></h5>
 
-        <p class="details-body"><%= blog.body %></p>
+        <p class="details-body" id="blogBody" name="blog_body"><%= blog.body %></p>
 
     </div>
 
     <script>
         const deleteButton = document.querySelector('#deleteBlog');
+        const editButton = document.querySelector('#editBlog');
 
         deleteButton.addEventListener('click', (e) =>
         {
@@ -32,6 +40,51 @@
             })
             // .then((data) => console.log(data))
             .catch((err) => console.log(err));
+        });
+
+        editButton.addEventListener('click', (e) =>
+        {
+            var body = document.querySelector('#blogBody');
+            
+            if(editButton.classList == 'edit-blog btn btn-outline-success')
+            {
+                body.setAttribute('contenteditable', 'true');
+
+                var contentCache = body.innerHTML;
+                body.focus();
+
+                editButton.classList = 'edit-blog btn btn-success';
+                editButton.innerHTML = `<i class="bi bi-pencil"></i> Confirm Edit`
+            }
+            else
+            {
+                editButton.classList = 'edit-blog btn btn-outline-success';
+                editButton.innerHTML = `<i class="bi bi-pencil"></i> Edit`
+                body.setAttribute('contenteditable', 'false');
+
+                // update edit to database
+                var fixBody = body.innerHTML;
+                fixBody = fixBody.replace(/<br>/g, '\r\n');
+                const data = { bodyUpdate: fixBody};
+                const endpoint = `/blog/${deleteButton.dataset.blogid}`;
+                
+                fetch(endpoint, 
+                {
+                    method: 'PUT',
+                    headers: { 'Content-type': 'application/json'},
+                    body: JSON.stringify(data),
+                })
+                .then(response => response.json())
+                .then(data => 
+                {
+                    console.log('Success:', data);
+                })
+                .catch((error) => 
+                {
+                    console.error('Error:', error);
+                });
+
+            }
         });
 
     </script>
